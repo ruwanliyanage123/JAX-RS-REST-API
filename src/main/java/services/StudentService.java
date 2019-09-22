@@ -61,6 +61,30 @@ public class StudentService {
         return studentList;
     }
 
+    /**
+     * this method used to retrieve a student by giving the ID
+     * @param studentId
+     * @return
+     */
+    public Student getStudent(String studentId){
+        Student student =null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM classroom WHERE sdudentId=?");
+            preparedStatement.setString(1,studentId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                student = new Student();
+                student.setStudentId(resultSet.getString(1));
+                student.setStudentName(resultSet.getString(2));
+                student.setAge(resultSet.getInt(3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return student;
+    }
+
 }
 
 
