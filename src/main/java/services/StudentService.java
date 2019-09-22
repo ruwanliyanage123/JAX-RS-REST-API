@@ -85,6 +85,34 @@ public class StudentService {
         return student;
     }
 
+
+    public void deleteStudent(String studentId){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM classroom WHERE studentId=?");
+            preparedStatement.setString(1,studentId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this used for update the database table
+     * @param student
+     * @param studentId
+     */
+    public void updateStudent(@NotNull Student student, String studentId){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE classroom SET  studentName=?,studentAge=? WHERE studentId=?");
+            preparedStatement.setString(1,student.getStudentName());
+            preparedStatement.setInt(2,student.getAge());
+            preparedStatement.setString(3,studentId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 
