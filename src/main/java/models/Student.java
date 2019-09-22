@@ -5,10 +5,8 @@ public class Student {
     private String studentName;
     private int    studentAge;
 
-    public Student(String studentId, String studentName, int studentAge){
-        this.studentId   = studentId;
-        this.studentName = studentName;
-        this.studentAge  = studentAge;
+    public Student(){
+
     }
 
     public String getStudentId() {
