@@ -15,11 +15,12 @@ public class DatabaseConnection {
      */
     private DatabaseConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String password = "";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String password = "19940306";
             String username = "ruwan";
             String url = "jdbc:mysql://localhost:3306/school";
             this.connection = DriverManager.getConnection(url, username, password);
+            System.out.println("Database Connection Creation successfully");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Database Connection Creation Failed : " + e.getMessage());
         }
@@ -29,7 +30,7 @@ public class DatabaseConnection {
      * this method used to provide the database connection for outside the class
      * @return
      */
-    private Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 

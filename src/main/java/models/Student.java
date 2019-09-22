@@ -3,12 +3,12 @@ package models;
 public class Student {
     private String studentId;
     private String studentName;
-    private int age;
+    private int    studentAge;
 
-    public Student(String studentId, String studentName, int age){
+    public Student(String studentId, String studentName, int studentAge){
         this.studentId   = studentId;
         this.studentName = studentName;
-        this.age         = age;
+        this.studentAge  = studentAge;
     }
 
     public String getStudentId() {
@@ -28,10 +28,10 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return studentAge;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int studentAge) {
+        this.studentAge = studentAge;
     }
 }
